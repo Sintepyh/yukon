@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Добавлення товару{% endblock %}
+
+{% block content %}
+   <div class="create">
+    <h1>Створення нового продукту</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="{{ form.title.id_for_label }}">Назва товару:</label>
+            {{ form.title }}
+        </p>
+        <p>
+            <label for="{{ form.preview.id_for_label }}">Фото товару:</label>
+            {{ form.preview }}
+        </p>
+        <p>
+            <label for="{{ form.description.id_for_label }}">Опис товару:</label>
+            {{ form.description }}
+        </p>
+        <p>
+            <label for="{{ form.price.id_for_label }}">Ціна:</label>
+            {{ form.price }}
+            <small>Грн/шт</small>
+        </p>
+        <p>
+            <label for="{{ form.number.id_for_label }}">Кількість:</label>
+            {{ form.number }}
+            <small>Шт</small>
+        </p>
+        {{ form.non_field_errors }}
+        <button type="submit" class="btn btn-success">Створити продукт</button>
+    </form>
+</div>
+
+
+
+{% endblock %}

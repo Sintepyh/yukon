@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ forms.title }}{% endblock %}
+
+{% block content %}
+    <div class="create">
+        <h1>Добавлення товару</h1>
+        <form method="post">{% csrf_token %}
+
+                <p>Назва товару{{ forms.title }}</p>
+                <p>Фото товару{{ forms.preview }}</p>
+                <div class="description" height="100"> Опис товару{{ forms.description }}</div>
+                <div class="info">
+                    <span class="price">Ціна:{{ forms.price }} <small>Грн/шт</small></span>
+                    <span class="price">Кількість:{{ forms.number }} <small>Шт</small></span>
+                </div>
+                <spa>{{ error }}</spa>
+
+            <button type="submit" class="btn btn-success">Підтвердити</button>
+        </form>
+    </div>
+
+
+{% endblock %}

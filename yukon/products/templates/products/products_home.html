@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Товари{% endblock %}
+
+{% block content %}
+    <h1>Товари</h1>
+
+<div class="container mt-5">
+  <div class="row">
+    {% for el in products %}
+      <div class="col-md-4">
+        <a href="{% url 'product_detail'%}" class="no-underline">
+          <div class="product">
+              <h2>{{ el.title }}</h2>
+              <div class="image">
+                <img src="{{ el.preview.url }}" width="100" height="100">
+              </div>
+              <div class="info">
+                <span class="price">Ціна: {{ el.price}} <small>Грн/шт</small></span>
+                <span class="price">Кількість: {{ el.number}} <small>Шт</small></span>
+              </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

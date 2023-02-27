@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from users.forms import UserCreationForm
+from .forms import UserCreationForm
 from django.views import View
 
 
